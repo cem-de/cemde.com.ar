@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found</title>
+    <style>
+        body {
+            font-family: Times, "Times New Roman", serif;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 10px 0 0 10px;
+            padding: 0;
+        }
+        h1 {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 0 0 15px 0;
+        }
+        p {
+            font-size: 1em;
+            margin: 0 0 15px 0;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Not Found</h1>
+    <p>The requested URL was not found on this server.</p>
+    <p>Additionally, a 404 Not Found error was encountered while trying to use an ErrorDocument to handle the request.</p>
+
+    <script>
+        // Si quieres que rutas específicas como /error redirijan o fuercen esta vista
+        const rutasBloqueadas = ['/wp-admin', '/error', '/404', '/wp-login.php'];
+        
+        if (rutasBloqueadas.some(ruta => window.location.pathname.endsWith(ruta))) {
+            // Ya está mostrando la plantilla de cPanel de arriba por defecto
+            console.log("Ruta no encontrada interceptada.");
+        }
+    </script>
+</body>
+</html>
